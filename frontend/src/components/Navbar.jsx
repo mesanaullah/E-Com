@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, Link } from 'react-router-dom'
 import { GoSearch } from "react-icons/go";
@@ -7,11 +7,13 @@ import { SlUser } from "react-icons/sl";
 import { BiMenuAltRight } from "react-icons/bi";
 import { MdArrowRight } from "react-icons/md";
 import { GoHeart } from "react-icons/go";
+import { ShopContext } from '../context/ShopContext';
 
 
 const Navbar = () => {
 
     const [Visible, setVisible] = useState(false);
+    const { setShowSearch } = useContext(ShopContext);
 
     return (
         <div className='flex items-center justify-between py-5 font-medium '>
@@ -43,7 +45,7 @@ const Navbar = () => {
             <div className='flex items-center gap-6'>
 
                 {/* Search icon */}
-                <GoSearch className="w-6 h-6 cursor-pointer" />
+                <GoSearch onClick={() => setShowSearch(true)} className="w-6 h-6 cursor-pointer" />
                 {/* <GoSearch className="w-5 sm:w-6 h-5 sm:h-6 cursor-pointer" /> */}
 
                 {/* Whishlist */}
