@@ -42,3 +42,4 @@ const RelatedProduct = ({ category, subCategory }) => {
 
 export default RelatedProduct
 
+//Related Prucut Component
