@@ -3,7 +3,7 @@ import upload from '../middleware/multer.js';
 import productModel from '../models/productModel.js';
 
 
-// function for add products
+// ---------------------function for add products----------------------//
 const addProduct = async (req, res) => {
 
     try {
@@ -53,7 +53,7 @@ const addProduct = async (req, res) => {
 }
 
 
-// function for list products
+// ----------------------function for list products----------------------//
 const listProducts = async (req, res) => {
 
     try {
@@ -70,7 +70,7 @@ const listProducts = async (req, res) => {
 }
 
 
-// function for removing products
+// ----------------------------function for removing products-----------------//
 const removeProduct = async (req, res) => {
 
     try {
@@ -85,7 +85,7 @@ const removeProduct = async (req, res) => {
 }
 
 
-// function for single product info
+// ----------------------function for single product info----------------------//
 const singleProduct = async (req, res) => {
 
     try {
