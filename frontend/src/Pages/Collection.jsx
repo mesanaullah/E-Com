@@ -3,6 +3,8 @@ import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import Title from '../components/Title';
 import ProductItem from '../components/ProductItem';
+import { BsSliders } from "react-icons/bs";
+
 
 
 const Collection = () => {
@@ -98,7 +100,9 @@ const Collection = () => {
       <div className='min-w-60'>
         <p onClick={() => setShowFilter(!showFilter)} className='my-2 text-md sm:text-xl flex items-center cursor-pointer gap-2'>FILTER
           <img src={assets.dropdown_icon} className={`h-3 sm:hidden  ${showFilter ? 'rotate-90' : ''}`} alt="" />
+          <BsSliders className='h-5 w-5 hidden md:block' />
         </p>
+
 
         {/* Categories */}
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block `}>
@@ -131,6 +135,66 @@ const Collection = () => {
             <p className='flex gap-2 '>
               <input className='w-3' type="checkbox" value={'Winterwear'} onChange={toggleSubCategory} />Winterwear
             </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Shirts
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />T-Shirts
+            </p>
+            
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Polo-Shirts
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory} />Trousers
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory} />Jeans
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Oversized
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory} />Cargo Pants
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory} />Joggers
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory} />Shorts
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Sweaters
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Hoodies
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Sweatshirts
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Jackets
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Shackets
+            </p>
+
+            <p className='flex gap-2 '>
+              <input className='w-3' type="checkbox" value={'Topwear'} onChange={toggleSubCategory} />Co-Ords
+            </p>
           </div>
         </div>
 
@@ -144,7 +208,7 @@ const Collection = () => {
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
 
           {/* Products Sort */}
-          <select onChange={(e) => setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
+          <select onChange={(e) => setSortType(e.target.value)} className='border-1 border-gray-300 text-sm px-2'>
             <option value="relavent">Sort by: Relavent</option>
             <option value="low-high">Sort by: Low-High</option>
             <option value="high-low">Sort by: High-Low</option>

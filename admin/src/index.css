@@ -4,3 +4,10 @@
 *{
   font-family: 'outfit';
 }
+
+.active{
+  background-color: black;
+  /* background-color: #36454F; */
+  border-color:black;
+  color:white;
+}

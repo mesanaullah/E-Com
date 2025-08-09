@@ -42,7 +42,7 @@ const Navbar = () => {
 
             </ul>
 
-            <div className='flex items-center gap-6'>
+            <div className='flex items-center gap-4 sm:gap-6'>
 
                 {/* Search icon */}
                 <GoSearch onClick={() => setShowSearch(true)} className="w-6 h-6 cursor-pointer" />
