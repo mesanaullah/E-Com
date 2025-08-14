@@ -1,59 +1,106 @@
-import React, { useStae } from 'react'
+import React, { useState } from 'react'
 import { IoCloudUploadOutline } from "react-icons/io5";
+import axios from 'axios'
+import { backendUrl } from '../App';
 
 
 
-const Add = () => {
+const Add = ({ token }) => {
 
-    const [image1, setImage1] = useStae(false);
-    const [image2, setImage2] = useStae(false);
-    const [image3, setImage3] = useStae(false);
-    const [image4, setImage4] = useStae(false);
+    const [image1, setImage1] = useState(false);
+    const [image2, setImage2] = useState(false);
+    const [image3, setImage3] = useState(false);
+    const [image4, setImage4] = useState(false);
 
-    const [name, setName] = useStae('');
-    const [description, setDescription] = useStae('');
-    const [price, setPrice] = useStae('');
-    const [category, setCategory] = useStae('Men');
-    const [subCategory, setSubCategory] = useStae('Topwear');
-    const [bestseller, setBestseller] = useStae('Men');
-    const [sizes, setSizes] = useStae([]);
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('Men');
+    const [subCategory, setSubCategory] = useState('Topwear');
+    const [bestseller, setBestseller] = useState('Men');
+    const [sizes, setSizes] = useState([]);
+
+    const onSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+
+            const formData = new FormData();
+
+            formData.append("name", name)
+            formData.append("description", description)
+            formData.append("category", category)
+            formData.append("subCategory", subCategory)
+            formData.append("price", price)
+            formData.append("bestseller", bestseller)
+            formData.append("sizes", JSON.stringify(sizes))
+
+            image1 && formData.append("image1", image1)
+            image2 && formData.append("image2", image2)
+            image3 && formData.append("image3", image3)
+            image4 && formData.append("image4", image4)
+
+            const response = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } })
+
+            console.log(response.data)
+
+
+        } catch (error) {
+
+            console.log(error)
+        }
+    }
 
     return (
-        <form className='flex flex-col w-full items-start gap-3'>
+        <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
             <div>
                 {/* ------------------------------Upload Image-------------------- */}
                 <p className='text-gray-700 mb-2'>Upload Image</p>
                 <div className='flex items-center gap-2'>
                     <label htmlFor="image1">
-                        <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
+
+                        {
+                            !image1 ? <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
+                                <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
+                                <p className='text-xs text-gray-400'>upload</p>
+                            </div> : <img className='w-20 h-20 object-cover rounded' src={URL.createObjectURL(image1)} alt="" />
+                        }
+
+                        {/* <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
                             <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
                             <p className='text-xs text-gray-400'>upload</p>
-                        </div>
-                        <input type="file" id="image1" hidden />
+                        </div> */}
+                        <input onChange={(e) => setImage1(e.target.files[0])} type="file" id="image1" hidden />
                     </label>
 
                     <label htmlFor="image2">
-                        <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
-                            <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
-                            <p className='text-xs text-gray-400'>upload</p>
-                        </div>
-                        <input type="file" id="image2" hidden />
+                        {
+                            !image2 ? <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
+                                <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
+                                <p className='text-xs text-gray-400'>upload</p>
+                            </div> : <img className='w-20 h-20 object-cover rounded' src={URL.createObjectURL(image2)} alt="" />
+                        }
+                        <input onChange={(e) => setImage2(e.target.files[0])} type="file" id="image2" hidden />
                     </label>
 
                     <label htmlFor="image3">
-                        <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
-                            <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
-                            <p className='text-xs text-gray-400'>upload</p>
-                        </div>
-                        <input type="file" id="image3" hidden />
+                        {
+                            !image3 ? <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
+                                <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
+                                <p className='text-xs text-gray-400'>upload</p>
+                            </div> : <img className='w-20 h-20 object-cover rounded' src={URL.createObjectURL(image3)} alt="" />
+                        }
+                        <input onChange={(e) => setImage3(e.target.files[0])} type="file" id="image3" hidden />
                     </label>
 
-                    <label htmlFor="image3">
-                        <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
-                            <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
-                            <p className='text-xs text-gray-400'>upload</p>
-                        </div>
-                        <input type="file" id="image3" hidden />
+                    <label htmlFor="image4">
+                        {
+                            !image4 ? <div className='border border-gray-400 border-dashed rounded-sm px-4 py-2'>
+                                <IoCloudUploadOutline className='h-8 w-8 text-gray-400' />
+                                <p className='text-xs text-gray-400'>upload</p>
+                            </div> : <img className='w-20 h-20 object-cover rounded' src={URL.createObjectURL(image4)} alt="" />
+                        }
+                        <input onChange={(e) => setImage4(e.target.files[0])} type="file" id="image4" hidden />
                     </label>
                 </div>
             </div>
@@ -61,13 +108,13 @@ const Add = () => {
             {/* --------------------------------Product Name ----------------------------- */}
             <div className='w-full'>
                 <p className='text-gray-700'>Product name</p>
-                <input className='w-full max-w-[500px] mt-2 border border-gray-300 outline-none px-3 py-2 rounded-sm' type="text" placeholder='Type here' required />
+                <input onChange={(e) => setName(e.target.value)} value={name} className='w-full max-w-[500px] mt-2 border border-gray-300 outline-none px-3 py-2 rounded-sm' type="text" placeholder='Type here' required />
             </div>
 
             {/* -----------------------Product Description---------------------- */}
             <div className='w-full'>
                 <p className='text-gray-700'>Product description</p>
-                <textarea className='w-full max-w-[500px] mt-2 border border-gray-300 outline-none px-3 py-2 rounded-sm' type="text" placeholder='Write content here' />
+                <textarea onChange={(e) => setDescription(e.target.value)} value={description} className='w-full max-w-[500px] mt-2 border border-gray-300 outline-none px-3 py-2 rounded-sm' type="text" placeholder='Write content here' />
             </div>
 
             {/*------------- categories---------- */}
@@ -77,7 +124,7 @@ const Add = () => {
                 {/*------------- Product category---------- */}
                 <div>
                     <p className='text-gray-700 mb-2'>Product category</p>
-                    <select className='w-full border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600'>
+                    <select onChange={(e) => setCategory(e.target.value)} className='w-full border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600'>
                         <option value="Men">Men</option>
                         <option value="Women">Women</option>
                         <option value="Kids">Kids</option>
@@ -87,7 +134,7 @@ const Add = () => {
                 {/*------------- Sub category---------- */}
                 <div>
                     <p className='text-gray-700 mb-2'>Sub category</p>
-                    <select className='w-full border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600'>
+                    <select onChange={(e) => setSubCategory(e.target.value)} className='w-full border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600'>
                         <option value="Topwear">Topwear</option>
                         <option value="Bottomwear">Bottomwear</option>
                         <option value="Shirts">Shirts</option>
@@ -109,7 +156,7 @@ const Add = () => {
                 {/*------------- Product Price---------- */}
                 <div className=''>
                     <p className='text-gray-700 mb-2'>Product Price</p>
-                    <input className='w-full sm:w-[120px] border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600' type="number" placeholder='25' />
+                    <input onChange={(e) => setPrice(e.target.value)} value={price} className='w-full sm:w-[120px] border border-gray-300 rounded-sm outline-none px-3 py-2 text-gray-600' type="number" placeholder='25' />
                 </div>
 
             </div>
@@ -119,37 +166,37 @@ const Add = () => {
             <div>
                 <p className='text-gray-700 mb-2'>Product Sizes</p>
                 <div className='flex gap-3'>
-                    <div>
-                        <p className='px-3 py-1 bg-slate-200 cursor-pointer text-gray-700'>S</p>
+                    <div onClick={() => setSizes(prev => prev.includes("S") ? prev.filter(item => item !== "S") : [...prev, "S"])} >
+                        <p className={`${sizes.includes("S") ? "bg-black text-white" : "bg-slate-200"} px-3 py-1  cursor-pointer text-gray-700`}>S</p>
                     </div>
 
-                    <div>
-                        <p className='px-3 py-1 bg-slate-200 cursor-pointer text-gray-700'>M</p>
+                    <div onClick={() => setSizes(prev => prev.includes("M") ? prev.filter(item => item !== "M") : [...prev, "M"])}>
+                        <p className={`${sizes.includes("M") ? "bg-black text-white" : "bg-slate-200"} px-3 py-1  cursor-pointer text-gray-700`}>M</p>
                     </div>
 
-                    <div>
-                        <p className='px-3 py-1 bg-slate-200 cursor-pointer text-gray-700'>L</p>
+                    <div onClick={() => setSizes(prev => prev.includes("L") ? prev.filter(item => item !== "L") : [...prev, "L"])}>
+                        <p className={`${sizes.includes("L") ? "bg-black text-white" : "bg-slate-200"} px-3 py-1  cursor-pointer text-gray-700`}>L</p>
                     </div>
 
-                    <div>
-                        <p className='px-3 py-1 bg-slate-200 cursor-pointer text-gray-700'>XL</p>
+                    <div onClick={() => setSizes(prev => prev.includes("XL") ? prev.filter(item => item !== "XL") : [...prev, "XL"])}>
+                        <p className={`${sizes.includes("XL") ? "bg-black text-white" : "bg-slate-200"} px-3 py-1  cursor-pointer text-gray-700`}>XL</p>
                     </div>
 
-                    <div>
-                        <p className='px-3 py-1 bg-slate-200 cursor-pointer text-gray-700'>XXL</p>
+                    <div onClick={() => setSizes(prev => prev.includes("XXL") ? prev.filter(item => item !== "XXL") : [...prev, "XXL"])}>
+                        <p className={`${sizes.includes("XXL") ? "bg-black text-white" : "bg-slate-200"} px-3 py-1  cursor-pointer text-gray-700`}>XXL</p>
                     </div>
                 </div>
             </div>
 
             {/*------------- Add to bestseller---------- */}
             <div className='flex gap-2 mt-2'>
-                <input type="checkbox" />
+                <input onChange={() => setBestseller(prev => !prev)} checked={bestseller} type="checkbox" />
                 <label className='text-gray-700' htmlFor="">Add to bestseller</label>
             </div>
 
             {/* -------------submitButton---------------------- */}
             <button type='submit' className='bg-black text-white px-10 py-2 text-center active:bg-gray-800 rounded-sm'>ADD</button>
-        </form>
+        </form >
 
 
     )
