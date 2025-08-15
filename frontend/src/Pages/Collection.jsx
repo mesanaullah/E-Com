@@ -53,7 +53,7 @@ const Collection = () => {
     setFilterProducts(productsCopy);
   }
 
-  const sortProducrt = () => {
+  const sortProduct = () => {
 
     let fpCopy = filterProducts.slice();
 
@@ -82,7 +82,7 @@ const Collection = () => {
   }, [category, subCategory, showSearch, search])
 
   useEffect(() => {
-    sortProducrt();
+    sortProduct();
   }, [sortType])
 
 
