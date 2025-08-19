@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Collection from './pages/Collection.jsx'
@@ -15,13 +15,12 @@ import SearchBar from './components/SearchBar.jsx'
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
-
-  const [token, setToken] = useState('')
-
+  
   return (
 
 
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+
       <ToastContainer />
       <Navbar />
       <SearchBar />
@@ -39,6 +38,7 @@ const App = () => {
       <Footer />
 
     </div>
+
   )
 }
 export default App
