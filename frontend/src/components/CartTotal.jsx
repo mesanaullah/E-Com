@@ -25,7 +25,7 @@ const CartTotal = () => {
                 </div>
 
                 <hr className='border-gray-300' />
-                <div className='flex justify-between font-semibold'>
+                <div className='flex justify-between font-semibold text-[#2F2F2F]'>
                     <p>Total</p>
                     <p>{currency}{getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee}.00</p>
 

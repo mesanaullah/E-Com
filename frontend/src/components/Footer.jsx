@@ -11,13 +11,15 @@ const Footer = () => {
 
                 {/* column 1 */}
                 <div>
-                    <img src={assets.logo} className='mb-5 w-32' alt="" />
+                    {/* <img src={assets.logo} className='mb-5 w-32' alt="" /> */}
+                    <p className='mb-5 raleway-logo text-4xl tracking-wider font-medium text-[#2F2F2F]'>KLYVE</p>
+
                     <p className='w-full sm:w-2/3 text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, eligendi excepturi, quisquam quam nobis tenetur laborum a dolores facere placeat sint commodi nemo deleniti, doloribus maiores nam nesciunt dicta perferendis! Possimus eveniet voluptas omnis quidem accusamus nostrum adipisci modi libero?</p>
                 </div>
 
                 {/* column 2 */}
                 <div>
-                    <p className='text-xl font-medium mb-5 text-gray-800'>COMPNAY</p>
+                    <p className='text-xl font-medium mb-5 text-[#2F2F2F]'>COMPNAY</p>
                     <ul className='flex flex-col gap-1 text-gray-600'>
                         {/* <li>Home</li>
                         <li>About Us</li>
@@ -33,7 +35,7 @@ const Footer = () => {
 
                 {/* column 3 */}
                 <div>
-                    <p className='text-xl font-medium text-gray-800 mb-5'>GET IN TOUCH</p>
+                    <p className='text-xl font-medium text-[#2F2F2F] mb-5'>GET IN TOUCH</p>
                     <ul className='flex flex-col gap-1 text-gray-600'>
                         <p>+91 95086-50731</p>
                         <p>mdsnaullah1227@gmail.com</p>
@@ -44,8 +46,8 @@ const Footer = () => {
 
             {/* copy rights */}
             <div>
-                <hr className='text-gray-300' />
-                <p className='py-5 text-sm text-center text-gray-800'>Copyright 2025@ forever - All Right Reserved.</p>
+                <hr className='text-gray-400' />
+                <p className='py-5 text-sm text-center text-[#2F2F2F]'>Copyright 2025@ forever - All Right Reserved.</p>
             </div>
         </div>
     )

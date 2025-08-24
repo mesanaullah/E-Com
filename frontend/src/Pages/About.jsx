@@ -16,7 +16,7 @@ const About = () => {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sequi error et doloremque? Tempora recusandae expedita, dolore facilis ducimus harum quibusdam nostrum, pariatur culpa vitae similique nemo quia eum fugit unde deserunt non. Commodi suscipit fugiat soluta sunt iure unde autem laborum, tempora dolores numquam dolorum, voluptate, obcaecati nobis quisquam.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, quasi pariatur. Similique aliquid eaque temporibus deserunt culpa ea quae aliquam, odio suscipit eveniet asperiores, fuga nihil explicabo sunt animi aspernatur autem. Eaque officia, modi quisquam veritatis cumque eligendi asperiores placeat.</p>
 
-          <b className='text-gray-800'>Our Mission</b>
+          <b className='text-[#2F2F2F]'>Our Mission</b>
           <p>Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.</p>
         </div>
       </div>

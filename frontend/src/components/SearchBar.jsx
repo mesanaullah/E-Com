@@ -27,10 +27,10 @@ const SearchBar = () => {
             <div className='inline-flex items-center justify-center border border-gray-500 px-5 py-2 my-5 mx-3 rounded-full w-3/4 sm:w-1/2 '>
                 <input value={search} onChange={(e) => setSearch(e.target.value)} className='flex-1 outline-none bg-inherit text-sm' type="text" placeholder='Serach' />
                 {/* <img className='w-4' src={assets.search_icon} alt="" /> */}
-                <GoSearch className="w-5 h-5 text-gray-500 cursor-pointer" />
+                <GoSearch className="w-5 h-5 text-[#2F2F2F] cursor-pointer" />
             </div>
 
-            <SlClose onClick={() => setShowSearch(false)} className='inline w-5 h-5 cursor-pointer text-gray-500' />
+            <SlClose onClick={() => setShowSearch(false)} className='inline w-5 h-5 cursor-pointer text-[#2F2F2F]' />
         </div>
     ) : null;
 }

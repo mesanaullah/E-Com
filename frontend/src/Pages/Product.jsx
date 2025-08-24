@@ -55,32 +55,32 @@ const Product = () => {
 
         {/* ---------------Product Info--------------*/}
         <div className='flex-1'>
-          <h1 className='font-medium text-2xl mt-2'>{productData.name}</h1>
+          <h1 className='font-medium text-2xl mt-2 text-[#2F2F2F]'>{productData.name}</h1>
           <div className='flex items-center gap-1 mt-2'>
             <img src={assets.star_icon} className='w-3 5' alt="" />
             <img src={assets.star_icon} className='w-3 5' alt="" />
             <img src={assets.star_icon} className='w-3 5' alt="" />
             <img src={assets.star_icon} className='w-3 5' alt="" />
             <img src={assets.star_dull_icon} className='w-3 5' alt="" />
-            <p className='pl-2'>(122)</p>
+            <p className='pl-2 text-[#2F2F2F]'>(122)</p>
           </div>
-          <p className='mt-5 text-3xl font-medium '>{currency}{productData.price}</p>
-          <p className='mt-5  text-gray-500 md:w-4/5 '>{productData.description}</p>
+          <p className='mt-5 text-3xl font-medium text-[#2F2F2F]'>{currency}{productData.price}</p>
+          <p className='mt-5  text-gray-600 md:w-4/5 '>{productData.description}</p>
 
           <div className='flex flex-col my-8 gap-4'>
-            <p>Select Size</p>
+            <p className='text-[#2F2F2F]'>Select Size</p>
             <div className='flex gap-2'>
               {
                 productData.sizes.map((item, index) => (
-                  <button onClick={() => setSize(item)} className={`border border-gray-300 py-2 px-4 bg-gray-100 ${item === size ? 'border-orange-500' : ''}`} key={index} > {item}</button>
+                  <button onClick={() => setSize(item)} className={`border border-gray-400 py-2 px-4  ${item === size ? 'border bg-black text-white' : ''}`} key={index} > {item}</button>
                 ))
               }
             </div>
           </div>
 
-          <button onClick={() => addToCart(productData._id, size)} className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+          <button onClick={() => addToCart(productData._id, size)} className='bg-black text-white px-8 py-3 text-sm active:bg-[#2F2F2F]'>ADD TO CART</button>
           <hr className='mt-8 sm:w-4/5 text-gray-300 ' />
-          <div className='flex flex-col text-sm text-gray-500 gap-1 mt-5'>
+          <div className='flex flex-col text-sm text-gray-600 gap-1 mt-5'>
             <p>100% Original product.</p>
             <p>Cash on delivery is available on this product.</p>
             <p>Easy return and exchange policy within 7 days.</p>
@@ -94,7 +94,7 @@ const Product = () => {
           <b className='border border-gray-300 py-3 px-5 text-sm'>Description</b>
           <p className='border border-gray-300 px-5 py-3 text-sm'>Reviews(122)</p>
         </div>
-        <div className='flex flex-col gap-4 border border-gray-300 px-6 py-6 text-sm text-gray-500'>
+        <div className='flex flex-col gap-4 border border-gray-300 px-6 py-6 text-sm text-gray-600'>
           <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.</p>
           <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
         </div>
