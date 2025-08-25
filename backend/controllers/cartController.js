@@ -10,7 +10,7 @@ const addTocart = async (req, res) => {
         let cartData = await userData.cartData;
 
         if (cartData[itemId]) {
-            if (cartData[itemid][size]) {
+            if (cartData[itemId][size]) {
                 cartData[itemId][size] += 1;
 
             } else {

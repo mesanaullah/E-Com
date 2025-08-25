@@ -12,10 +12,12 @@ import Orders from './pages/Orders.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import SearchBar from './components/SearchBar.jsx'
+import Men from './Pages/Men.jsx'
+import Women from './Pages/Women.jsx'
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
-  
+
   return (
 
 
@@ -26,6 +28,8 @@ const App = () => {
       <SearchBar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/men' element={<Men />} />
+        <Route path='/women' element={<Women />} />
         <Route path='/collection' element={<Collection />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />

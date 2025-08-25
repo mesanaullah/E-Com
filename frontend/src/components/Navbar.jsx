@@ -28,8 +28,18 @@ const Navbar = () => {
 
             <ul className='hidden sm:flex gap-4 text-sm text-[#2F2F2F]'>
 
-                <NavLink to='/' className='felx felx-col items-center gap-1' >
+                {/* <NavLink to='/' className='felx felx-col items-center gap-1' >
                     <p>HOME</p>
+                    <hr className='w-2/4 border-none h-[1.5px] bg-[#2F2F2F] hidden' />
+                </NavLink> */}
+
+                <NavLink to='/men' className='felx felx-col items-center gap-1' >
+                    <p>MEN</p>
+                    <hr className='w-2/4 border-none h-[1.5px] bg-[#2F2F2F] hidden' />
+                </NavLink>
+
+                <NavLink to='/women' className='felx felx-col items-center gap-1' >
+                    <p>WOMEN</p>
                     <hr className='w-2/4 border-none h-[1.5px] bg-[#2F2F2F] hidden' />
                 </NavLink>
 
